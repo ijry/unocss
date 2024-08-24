@@ -7,7 +7,7 @@ on:
     tags:
       - '*'
     branches:
-      - master
+      - main
 
   workflow_dispatch:
 
@@ -20,19 +20,16 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install yarn
-        run: corepack enable
-
-      - uses: actions/setup-node@v3
+      - name: NodeJS
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: 18
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build Site
-        run: npm run docs:build
+        run: npm -C docs run docs:build && npm -C playground run build && npm -C interactive run build
 
       # 将文档产物提交到gh-pages分支
       - name: Deploy for Github 🚀
