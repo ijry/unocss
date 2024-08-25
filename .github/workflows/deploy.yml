@@ -34,14 +34,14 @@ jobs:
         run: pnpm install
 
       - name: Build Site
-        run: npm -C docs run docs:build && npm -C playground run build && npm -C interactive run build
+        run: npm run deploy
 
       # 将文档产物提交到gh-pages分支
       - name: Deploy for Github 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
-          folder: docs/.vitepress/dist
+          folder: docs/dist
           # enable single-commit to reduce the repo size
           single-commit: true
           clean: true
