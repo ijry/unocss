@@ -3,8 +3,7 @@ import UnoCSS from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
-  // 这个要和自己的仓库地址一致
-  base: '/unocss/',
+  // base: '/unocss/',
   optimizeDeps: {
     exclude: [
       'vitepress',
