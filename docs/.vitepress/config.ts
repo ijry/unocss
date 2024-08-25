@@ -268,11 +268,16 @@ export default defineConfig({
     ['link', { rel: 'search', type: 'application/opensearchdescription+xml', href: '/search.xml', title: 'UnoCSS' }],
     [
       'script',
-      {
-        'defer': 'true',
-        'src': 'https://static.cloudflareinsights.com/beacon.min.js',
-        'data-cf-beacon': '{"token": "e70c564af9044d799f261b973af01a56"}',
-      },
+      {},
+      `
+      window._hmt = window._hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?32be4bb94670f2fcd42a05fb1bcf4680";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      `,
     ],
   ],
   lastUpdated: true,
@@ -283,7 +288,7 @@ export default defineConfig({
     /:\/\/localhost/,
   ],
   sitemap: {
-    hostname: 'https://unocss-cn.pages.dev',
+    hostname: 'https://unocss.jiangruyi.com',
   },
   markdown: {
     theme: {
