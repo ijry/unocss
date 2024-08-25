@@ -20,8 +20,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Get tags
-        run: git fetch --tags origin
+      - name: tag
+        run: git tag v0.61
         
       - name: pnpm
         uses: pnpm/action-setup@v2
